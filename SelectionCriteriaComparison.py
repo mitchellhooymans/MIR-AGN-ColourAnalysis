@@ -191,7 +191,8 @@ for sigma in range(1, 6):
         
     # Create a dataframe from the results list
     results_df = pd.DataFrame(results)
-    
+    print(str(sigma)+ "sigma")
+    print(results_df)
     # Save the results to a CSV file
     folder_path = 'diagnostic comparisons'
     if not os.path.exists(folder_path):
