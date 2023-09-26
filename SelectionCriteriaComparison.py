@@ -83,7 +83,8 @@ def import_truth_sample(field):
         - It calculates AGN contribution and adds a 'Known AGN' column based on predefined thresholds.
     """
     # Read in the truth samples and then create dataframes from the fits files
-    truth_sample = fits.open(field+'_truth.fits')
+    file_path =os.path.join("./truth sample/"+field+'_truth.fits')
+    truth_sample = fits.open(file_path)
     truth_df = pd.DataFrame(np.array(truth_sample[1].data).byteswap(
     ).newbyteorder())  # Byteswap so that Pandas can read it
     # Rename the ID column so that it matches the other dataframes
