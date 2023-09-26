@@ -1,0 +1,14 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+\providecommand{\dodoi}[1]{doi:~\href{http://doi.org/#1}{\nolinkurl{#1}}}
+\providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
+\providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
+
+\bibitem[{Lacy {et~al.}(2004)Lacy, Storrie‐Lombardi, Sajina, Appleton, Armus,
+  Chapman, Choi, Fadda, Fang, Frayer, Heinrichsen, Helou, Im, Marleau, Masci,
+  Shupe, Soifer, Surace, Teplitz, Wilson, \& Yan}]{lacy_obscured_2004}
+Lacy, M., Storrie‐Lombardi, L.~J., Sajina, A., {et~al.} 2004, The
+  Astrophysical Journal Supplement Series, 154, 166, \dodoi{10.1086/422816}
+
+\end{thebibliography}
