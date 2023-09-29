@@ -83,7 +83,7 @@ def import_truth_sample(field):
         - It calculates AGN contribution and adds a 'Known AGN' column based on predefined thresholds.
     """
     # Read in the truth samples and then create dataframes from the fits files
-    file_path =os.path.join("./truth sample/"+field+'_truth.fits')
+    file_path =os.path.join("./truth sample/"+field+'_truth_v1.2.fits')
     truth_sample = fits.open(file_path)
     truth_df = pd.DataFrame(np.array(truth_sample[1].data).byteswap(
     ).newbyteorder())  # Byteswap so that Pandas can read it
@@ -194,84 +194,54 @@ for sigma in range(1, 6):
         # This is where the magic will need to happen
         # In addition to this, if we are in the CDFS field we can also explore the Szokoly XRay AGN selection criteria
         if field == "CDFS":
-            print("XRAY WORKING AREA\n\n\n\n\n")
             # Import the data 
             xfolder_path='diagnostic selections'
             xfile_name = 'CDFS_xagn_selection_'+str(sigma)+'_sigma.csv'
             xfile_path = os.path.join(xfolder_path, xfile_name)
             xray_df = pd.read_csv(xfile_path)
             
-            #print("Elements of xray df: "+str(xray_df['id'].head()))
-            #print("Elements of cdfs df: "+str(fields[field]['id'].head()))
-        
-            print("Xray df shape: "+str(xray_df['id']))
-            print("CDFS df shape: "+str(fields[field]['id']))
+            
+            
+            
+            # join the fields
             xray_df = xray_df.join(fields[field].set_index('id'), on='id')
-            
-            
-            
-
-
-            #print("Known AGNs in the CDFS field:" + str(xray_df['Known AGN'].value_counts()))
-            
-            # AGN Diagnostics using the truth sample
-            print("Known AGNs in the CDFS field: " + str(xray_df['Known AGN'].value_counts()[1]))
-            print("Known unknown in the CDFS field: " + str(xray_df['Known AGN'].value_counts()[0]))
-            # Selected by Szokoly
-            print("Selected by Szokoly: " + str(xray_df['Szokoly Selection'].value_counts()[1]))   
-            print("Not selected by Szokoly: " + str(xray_df['Szokoly Selection'].value_counts()[0]))        
-            
             
             # # Create a new column for positive diagnostic, this will be set to zero initally
             xray_df['Positive Szokoly Selection'] = 0
             
             # Need to make a positive selection for when their are both known AGN (as per the truth sample) and a positive Szokoly selection
+            
+            
+            
             xray_df.loc[(xray_df['Known AGN'] == 1) & (xray_df['Szokoly Selection'] == 1), 'Positive Szokoly Selection'] = 1
             
+            # Print the Szokoly Selection
+            print("Szokoly Selection (XRay): " + str(len(xray_df[xray_df['Szokoly Selection'] == 1])))
+            print("Known AGN (XRay): " + str(len(xray_df[xray_df['Known AGN'] == 1])))
             
+            # Print number of times KnownAGN and Szokoly Selection are both one for the same datapoint using (xray_df['Known AGN'] == 1) & (xray_df['Szokoly Selection'] == 1)
             
-            # Present in both Szoloky and the truth sample
-            #print("Present in both Szoloky and the truth sample: " + str(xray_df['Positive Szokoly Selection'].value_counts()[1]))
+            print("Num Pos Diagnostics (XRay): " + str(len(xray_df[(xray_df['Known AGN'] == 1) & (xray_df['Szokoly Selection'] == 1)].values))) # This doesn't change with reduction of sigma values.
+            
+           # print("Num Pos Diagnostics (XRay): " + str(len(xray_df[xray_df['Positive Szokoly Selection'] == 1])))
             
             # # # Calculate the completeness of each selection
-            # szokoly_completeness = calculateCompleteness(xray_df, 'Szokoly')
+            szokoly_completeness = calculateCompleteness(xray_df, 'Szokoly')
             
             # # # Calculate the reliability of each selection
-            # szokoly_reliability = calculateReliability(xray_df, 'Szokoly')
+            szokoly_reliability = calculateReliability(xray_df, 'Szokoly')
             
             # # # Add completeness and reliability results to the dictionary
-            # field_results['Szokoly Completeness (%)'] = (round(szokoly_completeness*100, 2))
-            # field_results['Szokoly Reliability (%)'] = (round(szokoly_reliability*100, 2))
+            field_results['Szokoly Completeness (%)'] = (round(szokoly_completeness*100, 2))
+            field_results['Szokoly Reliability (%)'] = (round(szokoly_reliability*100, 2))
 
-        # Create a dataframe from the results list
-        results_df = pd.DataFrame(results)
-        print(str(sigma)+ "sigma")
-        print(results_df)
-        # Save the results to a CSV file
-        folder_path = 'diagnostic comparisons'
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path)
-
+        
         results.append(field_results)
-    
-    
-    # Seperately we also have XRay AGN data. Unfortuantely this only exsists for the CDFS field
-    # as such we can edit the diagnostic comparisons above for each sigma value
-    # and add an extra column for the Szokoly XRay AGN Selection and then calculate the completeness and reliability
-    # remembering that the CDFS field is the only field with XRay AGN data. 
-    # the file selected has the name CDFS_xagn_selection_n_sigma.csv where the n is the sigma number
-    print(results)
-    
-    
-    
-    
-    
-    
     
         
     # Create a dataframe from the results list
     results_df = pd.DataFrame(results)
-    print(str(sigma)+ "sigma")
+    print("Diagnostic Comparisons: " + str(sigma) + " Sigma")
     print(results_df)
     # Save the results to a CSV file
     folder_path = 'diagnostic comparisons'
