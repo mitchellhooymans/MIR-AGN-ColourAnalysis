@@ -1,14 +1,14 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{iopart}
 \usepackage[margin=2.5cm]{geometry}
-\usepackage{natbib} %aas uses natbib
-
+%\usepackage{natbib} %aas uses natbib
+\usepackage{setstack}
 
 % paragraph spacing
 \setlength{\parskip}{.7em}
 \setlength{\parindent}{0em}
 
 % maths/symbols
-\usepackage{amsmath}
+
 \usepackage{amssymb}
 
 % figures
@@ -23,68 +23,34 @@
 \usepackage{hyperref}
 
 
-\title{A Mid-Infrared Analysis of Accreting Supermassive Black Holes}
-
-\author{Mitchell Hooymans (n8869022)}
 \date{October 2023}
 
 
 
 
 \begin{document}
+\title{Mid-Infrared Analysis of Accreting Supermassive Black Holes}
+\author{Mitchell Hooymans $^1$}
 
-\maketitle
+\author{Michael Cowley (Supervisor) $^1$}
+\address{$^1$ Queensland University of Technology, Brisbane, Australia, 4000}
+
+\begin{abstract}
+    Abstract of this Project \cite{assef_mid-infrared_2013}
+\end{abstract}
+\ioptwocol
+\section{Introduction}
 \newpage
-\tableofcontents
+\section{Materials and Methods}
 \newpage
+\section{Results}
+\section{Discussion}
+\section{Conclusion}
+\bibliographystyle{vancouver}
+\bibliography{report/references}
+%\bibliography{references.bib} % references file!
 
-
-
-\section{Section Title}
-This is a template for PVB220 and will be used for PVB304
-% This is how you add a comment. This will not appear in the PDF!
-
-    \subsection{References}
-
-    The title is automatically created added to the table of contents. You can also make references 
-    \citep{lacy_obscured_2004}
-
-        \subsubsection{Add a table}
-        Some import variables we use in cosmology are given in Table \ref{tab:aTable}.
-        
-            \begin{table}[H]
-                \centering
-                \caption{A caption}
-                \begin{tabular}{lr}
-                    \hline \hline
-                    Variable & Value  \\
-                    \hline 
-                    $c$ & $3\times10^{8}$ m/s \\
-                    $\gamma$ & Lorentz Factor \\
-                    \hline
-                \end{tabular}
-                \label{tab:aTable}
-            \end{table}
-            
-            
-        \subsubsection{Add a figure}
-        
-        Figures can be added, as shown in Figure \ref{fig:Profiling}.
-        
-            \begin{figure}[H] % <- This [H] positions the figure here!
-                \centering
-                \includegraphics[width=0.7\textwidth]{figures/profiling_time.png}
-                \caption{An example figure}
-                \label{fig:Profiling}
-            \end{figure}
-            
-    
-
-\newpage
-\bibliography{references.bib} % references file!
-\bibliographystyle{aasjournal} % referencing style
-
-\appendix
+%\bibliographystyle{vancouver} % referencing style
 
 
 \end{document}
