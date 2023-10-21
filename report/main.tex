@@ -47,11 +47,21 @@ Due to this distinctive energy distribution we can observe these galaxies in spe
 \subsection{ZFOURGE}
 For this project, the data we used was from the ZFOURGE Survey \cite{straatman_fourstar_2016}. This survey observed over 60000 galaxies in three legacy fields, CDFS \cite{giacconi_chandra_2002}, COSMOS \cite{scoville_cosmic_2007}, and UDS \cite{lawrence_ukirt_2007} each pointing covering $11' \times 11'$. Observations in ZFOURGE were made using the FourStar Infrared Camera mounted on the Magellan Baade Telescope in Las Campanas, Chile \cite{persson_fourstar_2013}. Using the FourStar instrument, ZFOURGE observes with five near-infrared medium band filters; $J_1$, $J_2$, $J_3$, $H_s$, $H_l$ and one broad band filter $K_s$. In addition to this, the ZFOURGE survey is supplemented with multiwavelength data from CANDELS \cite{grogin_candels_2011, koekemoer_candels_2011} and data from the Spitzer Space Telescope's IRAC \cite{fazio_infrared_2004} and MIPS \cite{rieke_multiband_2004} instruments. Additional information regarding the ZFOURGE survey, including a complete list of auxiliary data and processing, can be found in Straatman's ZFOURGE paper \cite{straatman_fourstar_2016}.
 \subsection{Crossmatching}
-X-ray data was crossmatched from the Chandra Deep Field-South 4Ms Survey \cite{xue_chandra_2011} with ZFOURGE data in the CDFS field to allow the selection of AGN that produce x-ray emissions. To accomplish this both catalogues were imported and crossmatching was accomplished by matching celestial coordinates using the Astropy package \cite{the_astropy_collaboration_astropy_2013}. Performing this cross-match yielded an average sepeation between matches of around 0.4 arcseconds shown in Figure 1. 
-\begin{figure}[h]
+X-ray data was crossmatched from the Chandra Deep Field-South 4Ms Survey \cite{xue_chandra_2011} with ZFOURGE data in the CDFS field to allow the selection of AGN that produce x-ray emissions \cite{szokoly_chandra_2004}. To accomplish this both catalogues were imported and crossmatching was accomplished by matching celestial coordinates using the Astropy package \cite{the_astropy_collaboration_astropy_2013}. 
+\newpage To ensure that the cross-match is well constrained a maximum separation error of one-arcsecond radius is employed. 
+As we can see from Figure 1, the cross-match successfully matches the right acension and declination between each survey.
+\begin{figure}
   \centering
-  \includegraphics[width=0.53\textwidth]{plots/CDFS_4Ms_Xray_Sep.png}
-  \caption{Your figure caption here.}
+  \includegraphics[width=0.48\textwidth]{plots/CDFS_4Ms_Xray_ZFOURGE_XMatch.png}
+  \caption{Celestial Coordinate cross-matching between the ZFOURGE Survey in the CDFS field and the CDFS 4Ms survey.}
+  \label{fig:your_label}
+\end{figure}
+ 
+ To confirm the accuracy of the cross-match, and to ensure that sources had a low likelihood of being mismatched, a distribution of the separations between sources was generated presenting an average separation between matches of around 0.4 arcseconds shown in Figure 2. Ultimately from this cross-match 593 sources were cross-matched between both surveys. 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{plots/CDFS_4Ms_Xray_Sep.png}
+  \caption{Distribution of arcsecond seperations for the CDFS 4Ms - ZFOURGE cross match.}
   \label{fig:your_label}
 \end{figure}
 
