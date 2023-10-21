@@ -1,4 +1,4 @@
-﻿,Lacy Completeness (%),Lacy Reliability (%),Donley Completeness (%),Donley Reliability (%),Messias Completeness (%),Messias Reliability (%),Szokoly Completeness (%),Szokoly Reliability (%)
+Field,Lacy Completeness (%),Lacy Reliability (%),Donley Completeness (%),Donley Reliability (%),Messias Completeness (%),Messias Reliability (%),Szokoly Completeness (%),Szokoly Reliability (%)
 CDFS,98.06,11.56,35.92,30.08,18.45,42.22,24.26,24.09
-COSMOS,96.55,11.62,68.97,39.22,44.83,26,,
+COSMOS,96.55,11.62,68.97,39.22,44.83,26.0,,
 UDS,94.29,8.8,45.71,20.51,22.86,14.81,,
