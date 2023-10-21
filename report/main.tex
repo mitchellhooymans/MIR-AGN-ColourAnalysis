@@ -50,13 +50,13 @@ For this project, the data we used was from the ZFOURGE Survey \cite{straatman_f
 X-ray data was crossmatched from the Chandra Deep Field-South 4Ms Survey \cite{xue_chandra_2011} with ZFOURGE data in the CDFS field to allow the selection of AGN that produce x-ray emissions \cite{szokoly_chandra_2004}. To accomplish this both catalogues were imported and crossmatching was accomplished by matching celestial coordinates using the Astropy package \cite{the_astropy_collaboration_astropy_2013}. 
 \newpage To ensure that the cross-match is well constrained a maximum separation error of one-arcsecond radius is employed. 
 As we can see from Figure 1, the cross-match successfully matches the right acension and declination between each survey.
-\begin{figure}
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.48\textwidth]{plots/CDFS_4Ms_Xray_ZFOURGE_XMatch.png}
+  \includegraphics[width=0.54\textwidth]{plots/CDFS_4Ms_Xray_ZFOURGE_XMatch.png}
   \caption{Celestial Coordinate cross-matching between the ZFOURGE Survey in the CDFS field and the CDFS 4Ms survey.}
   \label{fig:your_label}
 \end{figure}
- 
+
  To confirm the accuracy of the cross-match, and to ensure that sources had a low likelihood of being mismatched, a distribution of the separations between sources was generated presenting an average separation between matches of around 0.4 arcseconds shown in Figure 2. Ultimately from this cross-match 593 sources were cross-matched between both surveys. 
 \begin{figure}
   \centering
