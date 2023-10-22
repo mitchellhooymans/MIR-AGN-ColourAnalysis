@@ -49,14 +49,14 @@ For this project, the data we used was from the ZFOURGE Survey \cite{straatman_f
 X-ray data was crossmatched from the Chandra Deep Field-South 4Ms Survey \cite{xue_chandra_2011} with ZFOURGE data in the CDFS field to allow the selection of AGN that produce x-ray emissions \cite{szokoly_chandra_2004}. To accomplish this both catalogues were imported and crossmatching was accomplished by matching celestial coordinates using the Astropy package \cite{the_astropy_collaboration_astropy_2013}. To ensure that the cross-match is well constrained a maximum separation error of one-arcsecond radius is used. The cross-match successfully matches the celestial coordinates between each survey with each source having an almost identical right ascension and declination (See Figure 1).
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.54\textwidth]{plots/CDFS_4Ms_Xray_ZFOURGE_XMatch.png}
+  \includegraphics[width=0.49\textwidth]{plots/CDFS_4Ms_Xray_ZFOURGE_XMatch.png}
   \caption{Celestial Coordinate cross-matching between the ZFOURGE Survey in the CDFS field and the CDFS 4Ms survey.}
   \label{fig:Crossmatch}
 \end{figure}
 To confirm the accuracy of the cross-match, and to ensure that sources had a low likelihood of being mismatched, a distribution of the separations between sources was generated (See Figure 2). Ultimately from this cross-match 593 sources were cross-matched between both surveys. 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.53\textwidth]{plots/CDFS_4Ms_Xray_Sep.png}
+  \includegraphics[width=0.49\textwidth]{plots/CDFS_4Ms_Xray_Sep.png}
   \caption{Distribution of arcsecond seperations for the CDFS 4Ms - ZFOURGE cross match.}
   \label{fig:ArcsecondSep}
 \end{figure}
@@ -110,42 +110,49 @@ As selection criteria can be influenced by contamination and incompleteness of d
     \end{split}
 \end{align*}
 \section{Results}
-
-PLACEHOLDER - IDEA IS TO PUT IN ALL PLOTS AND THEN BUILD A RESULTS SECTION AROUND THIS.
+\subsection{AGN Candidates}
+This
+\begin{table}[h]
+\caption{\label{label}AGN Candidates selected using MIR and x-ray techniques.}
+\begin{indented}
+\item[]\begin{tabular}{@{}llllll}
+\br
+&Lacy&Donley&Messias&X-ray&Unique\\
+\mr
+CDFS & 874 & 123 & 45 & 137 & 1014 \\
+COSMOS & 241 & 51 & 50 & n/a & 253 \\
+UDS & 375 & 78 & 54 & n/a & 382 \\
+Total & 1490 & 252 & 149 & 137 & 1649 \\
+\br
+\end{tabular}
+\end{indented}
+\end{table}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.54\textwidth]{plots/CDFSLacyWedge_error.png}
+  \includegraphics[width=0.49\textwidth]{plots/CDFSLacyWedge_error.png}
   \caption{The Lacy Wedge Selection for AGN candidates in the CDFS field. The average error is shown in the bottom right, propogated from flux}.
   \label{fig:LacyWedge}
 \end{figure}
-
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.54\textwidth]{plots/CDFSDonleyWedge_error.png}
+  \includegraphics[width=0.49\textwidth]{plots/CDFSDonleyWedge_error.png}
   \caption{The Donley Wedge Selection for AGN candidates in the CDFS field. The average error is shown in the bottom right, propogated from flux.}
   \label{fig:DonleyWedge}
 \end{figure}
-
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.54\textwidth]{plots/CDFSMessiasKISelection_error.png}
+  \includegraphics[width=0.49\textwidth]{plots/CDFSMessiasKISelection_error.png}
   \caption{The Messias KI Selection for AGN candidates in the CDFS field. This selection selects AGN with redshift $0.2 < z < 1.8$. The average error is shown in the bottom right, propagated from flux.}
   \label{fig:MessiasKI}
 \end{figure}
-
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.54\textwidth]{plots/CDFSMessiasKIMSelection_error.png}
+  \includegraphics[width=0.49\textwidth]{plots/CDFSMessiasKIMSelection_error.png}
   \caption{The Messias KIM Selection for AGN candidates in the CDFS field. This selection selects AGN with redshift $1.8 < z < 3.2$. The average error is shown in the bottom right, propagated from flux.}
   \label{fig:Messias}
 \end{figure}
-
-
-
-
-
-\subsection{AGN Candidates}
 \subsection{Completeness and Reliability of Selection}
+\newpage
 \section{Discussion}
 \section{Conclusion}
 \section{Acknowledgements}
