@@ -7,6 +7,7 @@
 import numpy as np
 from tabulate import tabulate
 import scipy as sp
+from scipy.stats import norm
 import matplotlib.pyplot as plt
 import pandas as pd
 from astropy.io import fits
@@ -129,7 +130,26 @@ def calculateReliability(df, diagnostic):
     diagnostic_selection = df[diagnostic + ' Selection'].value_counts()[1]
     return positive_selection/diagnostic_selection
 
-
+   # Completeness Error
+def CompletenessError(df, diagnostic, confidence_level = 0.95):
+    # Completeness = Positive Diagnostic / Known AGN
+    # Positive Diagnostic = AGN that are selected by CIGALE, and as AGN by the selection diagnostic
+    # Known AGN = AGN selected by CIGALE
+    x = df['Positive '+ diagnostic + " Selection"].value_counts()[1]
+    n = df['Known AGN'].value_counts()[1]
+    p = x/n
+    CompleteError = np.sqrt((p*(1-p))/n)
+    z = norm.ppf((1 + confidence_level)/2)   
+    return [p ,z*CompleteError]
+     
+    
+def ReliabilityError(df, diagnostic, confidence_level = 0.95):
+    x = df['Positive '+ diagnostic + " Selection"].value_counts()[1]
+    n = df[diagnostic + ' Selection'].value_counts()[1]
+    p = x/n
+    ReliabilityError = np.sqrt((p*(1-p))/n)
+    z = norm.ppf((1 + confidence_level)/2)
+    return [p ,z*ReliabilityError]   
 
 
 # Import the truth sample for each field here to save time in the loop below
@@ -238,6 +258,15 @@ for sigma in range(1, 6):
         
         results.append(field_results)
     
+    
+    # Create quick piece of code to calculate error in completeness and reliaibility of Szoloky
+    # Calculate the error in the completeness of each selection
+    szokoly_completeness_error = CompletenessError(xray_df, 'Szokoly')
+    szokoly_reliability_error = ReliabilityError(xray_df, 'Szokoly')
+
+    
+    print("Szokoly Completeness Error: " + str(szokoly_completeness_error))
+    print("Szokoly Reliability Error: " + str(szokoly_reliability_error))
         
     # Create a dataframe from the results list
     results_df = pd.DataFrame(results)
