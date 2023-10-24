@@ -112,38 +112,32 @@ The completeness is defined as the fraction of positive diagnostics to known AGN
 
 \section{Results}
 
-- BASIC OVERVIEW OF RESULTS
-* Plots
-    * Explain colour-colour diagrams for both donley and lacy in one go.
-        * mention large majority of selections occurring towards the center of the colour-colour diagram
-        * mention donley selecting a subset of lacy
-        * mention error bars. 
-    * possible mention unselected sources being excluded from the final selection due to fluxes not anatomically rising as per the selection criteria.
-    * Explain the messias KI and KIM selections, reiterating the redshift ranges for each criteria.
-        * mention the selections mostly occurring towards the center of the diagram for this
-        * mention the small amount of selections over all fields
-        * mention the small error bars for the KI using the K-band from ZFOURGE
-        * mention the large error bars on the KIM selection (higher redshift, higher flux error)
-    * Breifly mention x-ray selections
-    * Explain the table of results, 
-        * Large selections in Lacy
-        * CDFS has large amount of selections, followed by UDS, and then COSMOS.
-        * Donley and Messias make selections that have been made by Lacy.
-        * small overlap in selections with x-ray and IR of about 2 selections. 
-    * Completeness and Reliability plots
-        * explain what happened, briefly explain the cigale outputs, don't spend much time on that.
-        * Breifly mention the level of uncertainty with the completeness and reliability.
-    
 
 \subsection{AGN Candidates}
-The Lacy Selection (See Figure. \ref{fig:LacyWedge}) shows a large selection of AGN candidates from the approximately ~60000 galactic sources that were originally explored in the ZFOURGE survey. This selection was made over all of the HST fields with the selection being applied to sources that were filtered to a flux/error threshold of 5$\sigma$. An average error was calculated for all sources by propagating flux error into the colour space. 
-\begin{figure}[h]
+The Lacy selection (See Figure. \ref{fig:LacyWedge}) shows a large selection of AGN candidates from the approximately ~60000 galactic sources that were originally explored in the ZFOURGE survey.  The majority of selections in Lacy are clustered towards the center of the diagram with sources becoming more sparsely populated at higher colour ranges. Similarly in the Donley selection (See Figure \ref{fig:DonleyWedge}) we see the selections also tend to cluster towards the center. The selections made by Donley also select a subset of sources selected by Lacy, with the inclusion of a few extra sources. Both selections were made over all of the HST fields with the selection being applied to sources that were filtered to a flux/error threshold of 5$\sigma$.  \newpage
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.49\textwidth]{plots/All_fieldsLacyWedge_error.png}
   \caption{The Lacy Wedge Selection for AGN candidates in the all fields. The average error is shown in the bottom right}.
   \label{fig:LacyWedge}
 \end{figure}
 
+
+\newpage
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKISelection_error.png}
+  \caption{The Messias KI Selection for AGN candidates in the all fields. The selection is made on sources with redshift $0.2 < z < 1.8$. The average error is shown in the bottom right, propagated from flux.}
+  \label{fig:MessiasKI}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKIMSelection_error.png}
+  \caption{The Messias KIM Selection for AGN candidates in the all fields. The selection is made on sources with redshift $1.8 < z < 3.2$. The average error is shown in the bottom right, propagated from flux.}
+  \label{fig:Messias}
+\end{figure}
+\newpage
 \begin{table}
 \caption{\label{label}AGN Candidates selected using MIR and x-ray selection techniques.}
 \begin{indented}
@@ -160,24 +154,8 @@ Total & 1490 & 216 & 149 & 137 & 1647 \\
 \end{indented}
 \end{table}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.49\textwidth]{plots/All_fieldsDonleyWedge_error.png}
-  \caption{The Donley Wedge Selection for AGN candidates in all fields. The average error is shown in the bottom right, propagated from flux. Unselected sources inside the selection cut do not have monotonically rising SEDs.}
-  \label{fig:DonleyWedge}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKISelection_error.png}
-  \caption{The Messias KI Selection for AGN candidates in the all fields. The selection is made on sources with redshift $0.2 < z < 1.8$. The average error is shown in the bottom right, propagated from flux.}
-  \label{fig:MessiasKI}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKIMSelection_error.png}
-  \caption{The Messias KIM Selection for AGN candidates in the all fields. The selection is made on sources with redshift $1.8 < z < 3.2$. The average error is shown in the bottom right, propagated from flux.}
-  \label{fig:Messias}
-\end{figure}
+
+
 \subsection{Completeness and Reliability of Selection}
 \begin{figure}[h]
   \centering
