@@ -1,4 +1,4 @@
-\documentclass[12pt]{iopart}
+\documentclass[11pt]{iopart}
 
 \usepackage[margin=2.5cm]{geometry}
 %\usepackage{natbib} %aas uses natbib
@@ -45,7 +45,7 @@ Accreting Supermassive Black Holes, also called Active Galactic Nuclei (AGN), ar
 \subsection{ZFOURGE and Supplementary Data}
 For this project, the data we used was from the ZFOURGE Survey \cite{straatman_fourstar_2016}. This survey observed over 60000 galaxies in three of the Hubble Space Telescope's (HST) legacy fields, CDFS \cite{giacconi_chandra_2002}, COSMOS \cite{scoville_cosmic_2007}, and UDS \cite{lawrence_ukirt_2007} each pointing covering $11' \times 11'$. Observations in ZFOURGE were made using the FourStar Infrared Camera mounted on the Magellan Baade Telescope in Las Campanas, Chile \cite{persson_fourstar_2013}. Using the FourStar instrument, ZFOURGE observes with five near-infrared (NIR) medium band filters; $J_1$, $J_2$, $J_3$, $H_s$, $H_l$ and one broad band filter $K_s$. In addition to this, the ZFOURGE survey is supplemented with multi-wavelength data from CANDELS \cite{grogin_candels_2011, koekemoer_candels_2011} and data from the Spitzer Space Telescope's IRAC \cite{fazio_infrared_2004} and MIPS \cite{rieke_multiband_2004} instruments. Additional information regarding the ZFOURGE survey, including a complete list of auxiliary data and processing, can be found in Straatman's ZFOURGE paper \cite{straatman_fourstar_2016}.
 \subsection{Crossmatching}
-X-ray data was crossmatched from the Chandra Deep Field-South 4Ms Survey \cite{xue_chandra_2011} with ZFOURGE data in the CDFS field to allow the selection of AGN that produce x-ray emissions \cite{szokoly_chandra_2004}. To accomplish this both catalogues were imported and crossmatching was accomplished by matching celestial coordinates using the Astropy package \cite{the_astropy_collaboration_astropy_2013}. To ensure that the cross-match is well constrained a maximum separation error of one-arcsecond radius is used. The cross-match successfully matches the celestial coordinates between each survey with each source having an almost identical right ascension and declination (See Figure 1).
+X-ray data was crossmatched from the Chandra Deep Field-South 4Ms Survey \cite{xue_chandra_2011} with ZFOURGE data in the CDFS field to allow the selection of AGN that produce x-ray emissions \cite{szokoly_chandra_2004}. To accomplish this both catalogues were imported and crossmatching was accomplished by matching celestial coordinates using the Astropy package \cite{the_astropy_collaboration_astropy_2013}. To ensure that the cross-match is well constrained, a maximum separation error of a one-arcsecond radius was used. The cross-match successfully matched the celestial coordinates between each survey with each source having an almost identical right ascension and declination (See Figure 1).
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.49\textwidth]{plots/CDFS_4Ms_Xray_ZFOURGE_XMatch.png}
@@ -61,9 +61,9 @@ To confirm the accuracy of the cross-match, and to ensure that sources had a low
 \end{figure}
 \section{Selection of AGN Candidates}
 \subsection{Mid-Infrared Selections}
-Dust-obscured AGN, which are challenging to observe in the optical spectrum, are relatively more accessible through infrared observations \cite{yutani_origin_2022}. In this project we use mid-infrared colour-colour selection techniques from Lacy \cite{lacy_obscured_2004, lacy_optical_2007}, Donley\cite{donley_spitzer_2007, donley_identifying_2012}, and Messias \cite{messias_new_2012, messias_dependency_2014} we aim to select AGN candidates in each of the legacy fields. For IR candidate selection we use a sample selection of galaxies that are selected via the use = 1 flag, This ensures that the source has good photometry, a reliable redshift, and hasn't been misidentified as a star \cite{straatman_fourstar_2016}. In addition to applying the use flag, we filter sources based on a flux-to-error ratio of 5, omitting sources with high flux error and subsequently reducing the error in the final selection.
+Dust-obscured AGN, which are challenging to observe in the optical spectrum, are relatively more accessible through infrared observations \cite{yutani_origin_2022}. In this project we use mid-infrared colour-colour selection techniques from Lacy \cite{lacy_obscured_2004, lacy_optical_2007}, Donley\cite{donley_spitzer_2007, donley_identifying_2012}, and Messias \cite{messias_new_2012, messias_dependency_2014}  to select AGN candidates in each of the legacy fields. For IR candidate selection we use a sample selection of galaxies that are selected via the use = 1 flag, this flag ensured that the source has good photometry, a reliable redshift, and hadn't been misidentified as a star \cite{straatman_fourstar_2016}. In addition to applying the use flag, we filtered sources based on a flux-to-error ratio of 5, omitting sources with high flux error and subsequently reducing the error in the final selection.
 \subsection{Lacy Wedge Selection}
-The Lacy Wedge uses Spitzer colours from SDSS quasars to empirically define a colour selection that would select MIR SEDs that correspond to AGN \cite{lacy_obscured_2004}. To perform this selection, the selection uses IRAC fluxes at wavelengths of $3.6\mu m$, $4.5\mu m$, $5.8\mu m$, and $8.0\mu m$. Performing the colour-colour selection the sources were plotted with a x-axis colour of $x = log(f_{5.8}/f_{3.6})$ and a y-axis colour of $y =log(f_{8.0}/f_{4.5})$. The lacy colour selection criteria was then applied to each field on the colour-colour diagram. The lacy selection criteria are given by
+The Lacy Wedge uses Spitzer colours from SDSS quasars to empirically define a colour selection that would select MIR SEDs that correspond to AGN \cite{lacy_obscured_2004}. To perform this selection, the selection we used IRAC fluxes at wavelengths of $3.6\mu m$, $4.5\mu m$, $5.8\mu m$, and $8.0\mu m$. Performing the colour-colour selection the sources were plotted with colour axes of $x = log(f_{5.8}/f_{3.6})$ and a y-axis colour of $y =log(f_{8.0}/f_{4.5})$. The lacy colour selection criteria was then applied to each field on the colour-colour diagram. The lacy selection criteria are given by
 \begin{align*}
     \begin{split}
        \log_{10}\left(f_{5.8}/f_{3.6}\right)&>-0.1\\
@@ -111,38 +111,30 @@ As selection criteria can be influenced by contamination and incompleteness of d
 The completeness is defined as the fraction of positive diagnostics to known AGN, while the reliability is defined as the fraction of positive diagnostics to selected AGN. 
 
 \section{Results}
-
-
 \subsection{AGN Candidates}
 The Lacy selection (See Figure. \ref{fig:DonleyLacyWedge}) shows a large selection of AGN candidates from the approximately ~60000 galactic sources that were originally explored in the ZFOURGE survey.  The majority of selections in Lacy are clustered towards the center of the diagram with sources becoming more sparsely populated at higher colour ranges. Similarly in the Donley selection (See Figure \ref{fig:DonleyLacyWedge}) we see the selections also tend to cluster towards the center. The selections made by Donley also select a subset of sources selected by Lacy, with the inclusion of a few extra sources. Both selections were made over all of the HST fields with the selection being applied to sources that were filtered to a flux/error threshold of 5$\sigma$. Error was calculated for each of selection diagnostic by propogating the error from the flux error into the colour space and taking an average of the resulting error in that colourspace. These errors were therefore far lower at $5\sigma$ than at lower thresholds (i.e $1\sigma$, $2\sigma$, etc.). 
 \begin{figure*}
   \centering
-  \includegraphics[width=1.05\textwidth]{plots/All_fieldsDonleyLacyWedge_error.png}
+  \includegraphics[width=0.8\textwidth]{plots/All_fieldsDonleyLacyWedge_error.png}
   \caption{The Lacy (Left) and Donley (Right) Wedge Selection for AGN candidates in the all fields. The average error is shown in the bottom right. Unselected sources inside the Donley selection cut do not have monotonically rising SEDs.}
   \label{fig:DonleyLacyWedge}
 \end{figure*}
-
-\begin{figure}[h]
+\begin{figure}
   \centering
-  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKISelection_error.png}
+  \includegraphics[width=0.37\textwidth]{plots/All_fieldsMessiasKISelection_error.png}
   \caption{The Messias KI Selection for AGN candidates in the all fields. The selection is made on sources with redshift $0.2 < z < 1.8$. The average error is shown in the bottom right, propagated from flux.}
   \label{fig:MessiasKI}
 \end{figure}
 \newpage
-
+The Messias KI selection (See Figure. \ref{fig:MessiasKI}) shows a selection consistent selection consistent with the expected selection. The Messias KI and KIM selections are used in all fields. The KI selection tends to select mostly at the center to the less densely populated right side of the diagram. The KI selection in particular tends contains far more suspected AGN candidates than those selected by the Messias KIM selection (See Figure .\ref{fig:MessiasKIM}). Additionally, the sources of error are particularly low in y colour axis for the Messias KI selection and a relatively large in the x colour axis for the KIM selection. 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKISelection_error.png}
-  \caption{The Messias KI Selection for AGN candidates in the all fields. The selection is made on sources with redshift $0.2 < z < 1.8$. The average error is shown in the bottom right, propagated from flux.}
-  \label{fig:MessiasKI}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.49\textwidth]{plots/All_fieldsMessiasKIMSelection_error.png}
+  \includegraphics[width=0.37\textwidth]{plots/All_fieldsMessiasKIMSelection_error.png}
   \caption{The Messias KIM Selection for AGN candidates in the all fields. The selection is made on sources with redshift $1.8 < z < 3.2$. The average error is shown in the bottom right, propagated from flux.}
-  \label{fig:Messias}
+  \label{fig:MessiasKIM}
 \end{figure}
 \newpage
+Out of the ~60000 galaxies explored in the ZFOURGE survey 1649 sources were selected as AGN candidates (See Table. 1). The largest number of selections was made in the CDFS field. This was then followed by UDS and COSOMS. The Lacy selection criteria tended to select the greatest amount of sources as AGN candidates, followed by the Donley and Messias selections. The X-ray selection technique notably selected the least amount of sources, these sources however were not selected by the MIR techniques. In terms of uniqueness, almost all sources that were selected by Donley and Messias were also selected by the Lacy technique. 
 \begin{table}
 \caption{\label{label}AGN Candidates selected using MIR and x-ray selection techniques.}
 \begin{indented}
@@ -158,26 +150,25 @@ Total & 1490 & 216 & 149 & 137 & 1647 \\
 \end{tabular}
 \end{indented}
 \end{table}
-
-
-
-\subsection{Completeness and Reliability of Selection}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.40\textwidth]{plots/TechniqueCompleteness.png}
-  \caption{The completeness for each technique in all fields}
+  \includegraphics[width=0.37\textwidth]{plots/TechniqueCompleteness.png}
+  \caption{Selection completeness in all fields. Upper and lower error bars are calculated with a 95\% confidence interval.}
   \label{fig:Completeness}
 \end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.40\textwidth]{plots/TechniqueReliability.png}
-  \caption{The reliability for each technique in all fields}
-  \label{fig:Completeness}
-\end{figure}
-
 \newpage
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.37\textwidth]{plots/TechniqueReliability.png}
+  \caption{Selection reliability in all fields. Upper and lower error bars are calculated with a 95\% confidence interval.}
+  \label{fig:Completeness}
+\end{figure}
+Using the truth sample from the CIGALE output we calculated the reliability and completeness of the selections. We can see that the Lacy selection has a very high completeness of ~96-99\% contrasted with a low reliability of 15\% across all fields. This is followed by a lower completeness ~40-70\% and slightly higher reliability of ~20-40\% in both Donley and Messias selection techniques. The COSMOS field consistently has higher completeness and lower average reliability across all MIR selection techniques, with the Donley selection producing a completeness of 75\% and a reliability of ~40\%. The Szokoly x-ray selection technique shows low completeness and low reliability with both being around ~25\%. 
 \section{Discussion}
+The Mid-Infrared Techniques used in this paper show that the selection of AGN while possible, will have varying degrees of success. MIR colour selection techniques are generally influenced quite heavily by selection biases \cite{lacy_optical_2007}. This is because the techniques rely on the colour of the object being observed to be dominated by the selection colour. We see the influence of these biases strongly when examining the Lacy Wedge. The lacy wedge 
+\newpage
 \section{Conclusion}
+\newpage
 \section{Acknowledgements}
 \newpage
 \section{References}
